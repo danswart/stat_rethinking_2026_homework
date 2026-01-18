@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2026-01-18">
+<title>homework_A02</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="homework_A02_answers_files/libs/clipboard/clipboard.min.js"></script>
+<script src="homework_A02_answers_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="homework_A02_answers_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="homework_A02_answers_files/libs/quarto-html/popper.min.js"></script>
+<script src="homework_A02_answers_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="homework_A02_answers_files/libs/quarto-html/anchor.min.js"></script>
+<link href="homework_A02_answers_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="homework_A02_answers_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="homework_A02_answers_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="homework_A02_answers_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="homework_A02_answers_files/libs/bootstrap/bootstrap-a55592fe5fe35d52a71ffe67936ae3bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="homework_A02_answers_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="homework_A02_answers_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="homework_A02_answers_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><!-- Current as of: 2025-08-25 --><link rel="stylesheet" href="swart.css">
+<link rel="stylesheet" href="tachyons.min.css">
+<link rel="stylesheet" href="r-colors.css">
+<link href="homework_A02_answers_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="homework_A02_answers_files/libs/tabwid-1.1.3/tabwid.js"></script><link href="homework_A02_answers_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="homework_A02_answers_files/libs/pagedtable-1.1/js/pagedtable.js"></script><link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schoolbell&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="swart.css">
+<link rel="stylesheet" href="tachyons.min.css">
+<link rel="stylesheet" href="r-colors.css">
+</head>
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#workflow-bayesian-globe-tossing-analysis-tidy-approach" id="toc-workflow-bayesian-globe-tossing-analysis-tidy-approach" class="nav-link active" data-scroll-target="#workflow-bayesian-globe-tossing-analysis-tidy-approach">Workflow: Bayesian Globe Tossing Analysis (Tidy Approach)</a>
+  <ul class="collapse">
+<li>
+<a href="#problem-summary" id="toc-problem-summary" class="nav-link" data-scroll-target="#problem-summary">Problem Summary</a>
+  <ul class="collapse">
+<li><a href="#step-1-define-the-prior" id="toc-step-1-define-the-prior" class="nav-link" data-scroll-target="#step-1-define-the-prior">Step 1: Define the Prior</a></li>
+  <li><a href="#step-2-compute-the-posterior-and-visualize-it" id="toc-step-2-compute-the-posterior-and-visualize-it" class="nav-link" data-scroll-target="#step-2-compute-the-posterior-and-visualize-it">Step 2: Compute the Posterior and Visualize It</a></li>
+  <li><a href="#step-3-sample-from-the-posterior" id="toc-step-3-sample-from-the-posterior" class="nav-link" data-scroll-target="#step-3-sample-from-the-posterior">Step 3: Sample from the Posterior</a></li>
+  <li><a href="#step-5-generate-posterior-predictive-distribution" id="toc-step-5-generate-posterior-predictive-distribution" class="nav-link" data-scroll-target="#step-5-generate-posterior-predictive-distribution">Step 5: Generate Posterior Predictive Distribution</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li><a href="#function-summary" id="toc-function-summary" class="nav-link" data-scroll-target="#function-summary">Function Summary</a></li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="homework_A02_answers.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li><li><a href="homework_A02_answers.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+</div>
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">homework_A02</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dan Swart, CPA (ret) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 18, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header><section id="workflow-bayesian-globe-tossing-analysis-tidy-approach" class="level1"><h1>Workflow: Bayesian Globe Tossing Analysis (Tidy Approach)</h1>
+<section id="problem-summary" class="level2"><h2 class="anchored" data-anchor-id="problem-summary">Problem Summary</h2>
+<p>Data: 3 water (W), 11 land (L), total n = 14<br>
+Goal 1: Posterior distribution for p (probability of water)<br>
+Goal 2: Posterior predictive distribution for next 5 tosses</p>
+<section id="step-1-define-the-prior" class="level3"><h3 class="anchored" data-anchor-id="step-1-define-the-prior">Step 1: Define the Prior</h3>
+<p>Choose a prior for p.&nbsp;Standard choice is uniform: Beta(1, 1).</p>
+<div class="cell">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get data</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"W"</span>, <span class="st">"L"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">11</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># get counts</span></span>
+<span><span class="va">W</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">data</span> <span class="op">==</span> <span class="st">"W"</span><span class="op">)</span>  <span class="co"># 3</span></span>
+<span><span class="va">L</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">data</span> <span class="op">==</span> <span class="st">"L"</span><span class="op">)</span>  <span class="co"># 11</span></span>
+<span></span>
+<span><span class="co"># Prior parameters (uniform)</span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="co"># Naive probability for p for W</span></span>
+<span><span class="va">naivep</span> <span class="op">&lt;-</span> <span class="fl">3</span><span class="op">/</span><span class="fl">14</span>   <span class="co"># 0.2142857</span></span>
+<span><span class="co"># print(naivep)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The ‘naive’ proportion of water is 3/14 = 0.2142857</p>
+</section><section id="step-2-compute-the-posterior-and-visualize-it" class="level3"><h3 class="anchored" data-anchor-id="step-2-compute-the-posterior-and-visualize-it">Step 2: Compute the Posterior and Visualize It</h3>
+<p>Prior: Beta(a, b) = Beta(1, 1)<br>
+Posterior: Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)</p>
+<div class="cell">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Update uniform distribution to include new data</span></span>
+<span></span>
+<span><span class="co"># Posterior: Beta(a + W, b + L) = Beta(4, 12)</span></span>
+<span><span class="va">samples</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  p <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>, shape1 <span class="op">=</span> <span class="va">a</span> <span class="op">+</span> <span class="va">W</span>, shape2 <span class="op">=</span> <span class="va">b</span> <span class="op">+</span> <span class="va">L</span><span class="op">)</span></span>
+<span><span class="op">)</span>   <span class="co"># take random 'x' values from beta with specified parameters and return the height of the curve at each value</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Visualize posterior with histogram</span></span>
+<span><span class="va">samples</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">p</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span></span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, by <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>,</span>
+<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="3900"></a></p>
+</figure>
+</div>
+</div>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Get mode of Beta(4, 12) to visualize peak point of updated distrib</span></span>
+<span><span class="va">mode_p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">4</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">4</span> <span class="op">+</span> <span class="fl">12</span> <span class="op">-</span> <span class="fl">2</span><span class="op">)</span>  <span class="co"># gives the peak of the density function</span></span>
+<span><span class="va">peak_density</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">mode_p</span>, shape1 <span class="op">=</span> <span class="fl">4</span>, shape2 <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>  <span class="co"># returns the height of the curve (density) at the single point = mode_p</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Now visualize with density curves</span></span>
+<span><span class="va">densities</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,  <span class="co"># 100 evenly spaced x values between 0 - 1</span></span>
+<span>  prior <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">p</span>, shape1 <span class="op">=</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,  <span class="co"># returns the height of the curve (density) at all the x values of the uniform shape (=1)</span></span>
+<span>  posterior <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">p</span>, shape1 <span class="op">=</span> <span class="fl">4</span>, shape2 <span class="op">=</span> <span class="fl">12</span><span class="op">)</span> <span class="co"># returns the height of the curve (density) at all the x values of the updated shape from 0 - 1</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span>    cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">prior</span>, <span class="va">posterior</span><span class="op">)</span>, </span>
+<span>    names_to <span class="op">=</span> <span class="st">"distribution"</span>, </span>
+<span>    values_to <span class="op">=</span> <span class="st">"density"</span></span>
+<span>  <span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># # view it</span></span>
+<span><span class="co"># densities</span></span>
+<span></span>
+<span><span class="co"># plot it</span></span>
+<span><span class="va">densities</span><span class="op">|&gt;</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">p</span>, y <span class="op">=</span> <span class="va">density</span>, color <span class="op">=</span> <span class="va">distribution</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
+<span>    <span class="st">"segment"</span>,</span>
+<span>    x <span class="op">=</span> <span class="va">mode_p</span>, xend <span class="op">=</span> <span class="va">mode_p</span>, </span>
+<span>    y <span class="op">=</span> <span class="fl">0</span>, yend <span class="op">=</span> <span class="va">peak_density</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"gray50"</span>,</span>
+<span>    linewidth <span class="op">=</span> <span class="fl">0.5</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Prior vs Posterior"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-2-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="3900"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="step-3-sample-from-the-posterior" class="level3"><h3 class="anchored" data-anchor-id="step-3-sample-from-the-posterior">Step 3: Sample from the Posterior</h3>
+<p>Draw many samples (e.g., 10,000) from the posterior distribution.</p>
+<div class="cell">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># p is the probability of water on a single globe toss.  shape1 = (α)Prior + 'successes'     shape2 = (β)Prior + 'failures'</span></span>
+<span></span>
+<span><span class="va">samples_from_post</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  p <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>, shape1 <span class="op">=</span> <span class="fl">4</span>, shape2 <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
+<span><span class="op">)</span>   <span class="co"># rbeta() = take n random samples as you walk along the curve created from a Beta distrib with empirically specified parameters.  shape1 = 'successes'   shape2 = 'failures' and return the height of curve at each sample point on the curve</span></span>
+<span></span>
+<span><span class="co"># visualize it with histogram (don't use density curves; they are for continuous data)</span></span>
+<span><span class="va">samples_from_post</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">p</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="3900"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="step-5-generate-posterior-predictive-distribution" class="level3"><h3 class="anchored" data-anchor-id="step-5-generate-posterior-predictive-distribution">Step 5: Generate Posterior Predictive Distribution</h3>
+<p>For each posterior sample of p, simulate 5 globe tosses and count water.</p>
+<p>This is vectorized: one call handles all samples.</p>
+<div class="cell">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Simulate 5 tosses for each posterior sample</span></span>
+<span><span class="va">predictions</span> <span class="op">&lt;-</span> <span class="va">samples_from_post</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    water_in_5 <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="va">p</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>  <span class="co"># rbinom() — simulate binomial draws (n = 5, prob = posterior samples)</span></span>
+<span></span>
+<span><span class="co"># Summarize and add to tibble</span></span>
+<span><span class="va">predictions</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">water_in_5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>prob <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["water_in_5"],"name":[1],"type":["int"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["prob"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"2887","3":"0.2887"},{"1":"1","2":"3477","3":"0.3477"},{"1":"2","2":"2333","3":"0.2333"},{"1":"3","2":"982","3":"0.0982"},{"1":"4","2":"281","3":"0.0281"},{"1":"5","2":"40","3":"0.0040"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Visualize - Each bar shows "how many of my 10,000 simulated samples of 5 'futures' had 0, 1, 2... waters"</span></span>
+<span><span class="va">predictions</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">water_in_5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">water_in_5</span>, y <span class="op">=</span> <span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="3900"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<hr></section></section></section><section id="function-summary" class="level1"><h1>Function Summary</h1>
+<div class="cell">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  Step <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"3"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"6"</span>, <span class="st">"7"</span><span class="op">)</span>,</span>
+<span>  Function <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"stats::rbeta()"</span>, <span class="st">"tibble::tibble()"</span>, <span class="st">"ggplot2::geom_histogram()"</span>,</span>
+<span>               <span class="st">"stats::rbinom()"</span>, <span class="st">"dplyr::mutate()"</span>, <span class="st">"dplyr::count()"</span>,</span>
+<span>               <span class="st">"dplyr::mutate()"</span>, <span class="st">"ggplot2::geom_col()"</span><span class="op">)</span>,</span>
+<span>  Purpose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample posterior (no tidy alt)"</span>, <span class="st">"Store samples"</span>, <span class="st">"Plot posterior"</span>,</span>
+<span>              <span class="st">"Simulate predictions (no tidy alt)"</span>, <span class="st">"Add prediction column"</span>,</span>
+<span>              <span class="st">"Get counts of each result"</span>, <span class="st">"Add column to data frame"</span>, <span class="st">"Plot predictive distribution as bar chart"</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/add_header_lines.html">add_header_lines</a></span><span class="op">(</span><span class="st">"Key R Functions for Bayesian Globe Analysis"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/color.html">color</a></span><span class="op">(</span>i <span class="op">=</span> <span class="fl">1</span>, part <span class="op">=</span> <span class="st">"header"</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/italic.html">italic</a></span><span class="op">(</span>i <span class="op">=</span> <span class="fl">1</span>, part <span class="op">=</span> <span class="st">"header"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/align.html">align</a></span><span class="op">(</span>i <span class="op">=</span> <span class="fl">1</span>, part <span class="op">=</span> <span class="st">"header"</span>, align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/fontsize.html">fontsize</a></span><span class="op">(</span>i <span class="op">=</span> <span class="fl">1</span>, part <span class="op">=</span> <span class="st">"header"</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/bg.html">bg</a></span><span class="op">(</span>i <span class="op">=</span> <span class="fl">1</span>, part <span class="op">=</span> <span class="st">"header"</span>, bg <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/bg.html">bg</a></span><span class="op">(</span>i <span class="op">=</span> <span class="fl">2</span>, part <span class="op">=</span> <span class="st">"header"</span>, bg <span class="op">=</span> <span class="st">"palegreen"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div class="tabwid">
+<style>.cl-7aac91e6{}.cl-7a8a2dae{font-family:'Cabin';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;}.cl-7a8a2dc2{font-family:'Cabin';font-size:14pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7aa4152a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:4pt;padding-right:4pt;line-height: 1.3;background-color:transparent;}.cl-7aa4646c{width:0.635in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa46476{width:2.479in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa46477{width:3.386in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa46480{width:0.635in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa4648a{width:2.479in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa4648b{width:3.386in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa4648c{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa46494{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa46495{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa46496{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa46497{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa4649e{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa4649f{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa464a0{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa464a8{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-7aac91e6">
+<thead>
+<tr style="overflow-wrap:break-word;"><th colspan="3" class="cl-7aa4646c"><p class="cl-7aa4152a"><span class="cl-7a8a2dae">Key R Functions for Bayesian Globe Analysis</span></p></th></tr>
+<tr style="overflow-wrap:break-word;">
+<th class="cl-7aa46480"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Step</span></p></th>
+<th class="cl-7aa4648a"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Function</span></p></th>
+<th class="cl-7aa4648b"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Purpose</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa4648c"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">3</span></p></td>
+<td class="cl-7aa46494"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">stats::rbeta()</span></p></td>
+<td class="cl-7aa46495"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Sample posterior (no tidy alt)</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa4648c"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">3</span></p></td>
+<td class="cl-7aa46494"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">tibble::tibble()</span></p></td>
+<td class="cl-7aa46495"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Store samples</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa46496"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">4</span></p></td>
+<td class="cl-7aa46497"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">ggplot2::geom_histogram()</span></p></td>
+<td class="cl-7aa4649e"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Plot posterior</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa4648c"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">5</span></p></td>
+<td class="cl-7aa46494"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">stats::rbinom()</span></p></td>
+<td class="cl-7aa46495"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Simulate predictions (no tidy alt)</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa4648c"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">5</span></p></td>
+<td class="cl-7aa46494"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">dplyr::mutate()</span></p></td>
+<td class="cl-7aa46495"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Add prediction column</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa4648c"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">6</span></p></td>
+<td class="cl-7aa46494"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">dplyr::count()</span></p></td>
+<td class="cl-7aa46495"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Get counts of each result</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa4648c"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">6</span></p></td>
+<td class="cl-7aa46494"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">dplyr::mutate()</span></p></td>
+<td class="cl-7aa46495"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Add column to data frame</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-7aa4649f"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">7</span></p></td>
+<td class="cl-7aa464a0"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">ggplot2::geom_col()</span></p></td>
+<td class="cl-7aa464a8"><p class="cl-7aa4152a"><span class="cl-7a8a2dc2">Plot predictive distribution as bar chart</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section></main><!-- /main column --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+# <script type="text/javascript" src="reference-backlinks.js"></script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+</body></html>

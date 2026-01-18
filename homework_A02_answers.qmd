@@ -1,0 +1,426 @@
+---
+title: "homework_A02"
+authors: 
+  - name: "Dan Swart, CPA (ret)"
+date: today
+date-format: long
+# bibliography: manual-refs.bib
+format:
+  html:
+    resources:
+      - reference-backlinks.js
+    include-after-body:    
+      - text: |
+          # <script type="text/javascript" src="reference-backlinks.js"></script>
+    default: true         
+    code-copy: true
+    code-link: true        # This adds individual buttons
+    code-fold: true        # Hide code by default, show on click
+    code-summary: "Show the code"
+    code-overflow: wrap
+    code-block-bg: "#FAEBD7"
+    code-block-border-left: "#31BAE9"
+    embed-resources: false     # Fast for drafts. Override for sharing output
+    include-in-header:
+      - text: 
+          <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+      - header.html
+    css:
+      - swart.css
+      - tachyons.min.css
+      - r-colors.css
+    fontsize: 18pt
+    lightbox: true
+    page-layout: full
+    fig-width: 13
+    fig-height: 8
+    fig-dpi: 300
+    html-math-method: katex
+    df-print: paged
+    toc: true
+    toc-float: true
+    citeproc: true
+    link-citations: true
+    linestretch: 1.0
+    
+    
+    
+  typst:
+    # fig-width: 13
+    E fig-height: 8
+    fig-dpi: 300
+    margin:
+      x: 1in
+      y: 1in
+    toc: true
+    fontsize: 16pt
+    mainfont: "Cabin"
+  
+
+    
+  revealjs:
+    slide-number: true
+    transition: fade
+    code-overflow: wrap
+    center: true
+    smaller: true
+    scrollable: true
+    chalkboard: true
+    multiplex: false
+    theme: solarized
+    reference-location: margin
+    logo: img/red-cross-640-435.png
+    footer: "Footer text"
+    code-block-height: 650px
+
+
+
+  # docx:
+  #   highlight-style: github
+  #   fig_caption: true
+
+
+
+editor: source
+
+quarto:
+  render:
+    cache-refresh: true
+
+
+# for .qmd filesd
+execute:
+  echo: true
+  message: false
+  warning: false
+  eval: true
+  fig-width: 13
+  fig-height: 8
+
+
+# for .rmd files
+knitr:
+  opts_chunk:
+    echo: true
+    error: false
+    warning: false
+    message: false
+    cache: false
+
+
+---
+
+
+```{r}
+#| label: setup
+#| include: false
+#| echo: false
+
+
+# # load libraries - NOT NEEDED
+
+
+# Force dplyr's select to take precedence
+select <- dplyr::select
+filter <- dplyr::filter
+
+# Options
+options(scipen = 999)
+options(qic.clshade = T) # NO LONGER NEEDED; CHARTS ALL PREPARED WITH GGPLOT2 ONLY
+options(qic.linecol = 'black') # NO LONGER NEEDED; CHARTS ALL PREPARED WITH GGPLOT2 ONLY
+options(qic.signalcol = "firebrick") # NO LONGER NEEDED; CHARTS ALL PREPARED WITH GGPLOT2 ONLY
+options(qic.targetcol = "purple") # NO LONGER NEEDED; CHARTS ALL PREPARED WITH GGPLOT2 ONLY
+options(DT.options = list(dom = 'pBlfrti')) # Add buttons, filtering, and top (t) pagination controls
+options(shiny.maxRequestSize = 50 * 1024^2) # Set upload maximum to 50 MB
+options(tigris_use_cache = TRUE)
+options(device = "RStudioGD") 
+
+
+# Flextable defaults:
+flextable::set_flextable_defaults(
+  font.size = 14, 
+  font.family = "Cabin",
+  font.color = "black",
+  table.layout = "fixed",
+  border.color = "darkgray",
+  padding.top = 3, padding.bottom = 3,
+  padding.left = 4, padding.right = 4,
+  line_spacing = 1.3,
+  digits = 2,
+  decimal.mark = ".",
+  big.mark = " ",
+  na_str = "<na>",
+  post_process_html = identity,
+  post_process_docx = identity
+)
+
+# Set global theme for consistent plots
+ggplot2::theme_set(
+  ggplot2::theme_minimal(base_size = 20) +
+    ggplot2::theme(
+      plot.title.position = "plot",
+      plot.title = ggtext::element_textbox_simple(
+        family = "Cabin",
+        face = "bold",
+        color = "darkgreen",
+        size = 16,
+        fill = "yellow",
+        lineheight = 0.9,
+        padding = ggplot2::margin(5.5, 5.5, 0.0, 5.5),
+        margin = ggplot2::margin(0, 0, 5.5, 0)
+      ),
+      plot.subtitle = ggtext::element_textbox_simple(
+        family = "Cabin",
+        color = "darkgreen",
+        face = "bold",
+        size = 14,
+        fill = "yellow",
+        lineheight = 0.9,
+        padding = ggplot2::margin(5.5, 5.5, 5.5, 5.5),
+        margin = ggplot2::margin(0.0, 0, 5.5, 0)
+      ),
+      plot.caption = ggtext::element_markdown(
+        family = "Cabin",
+        size = 14,
+        hjust = 1,
+        color = "darkblue",
+        face = "italic",
+        fill = "yellow",
+        lineheight = 1.0
+      ),
+      axis.text.x = ggtext::element_markdown(
+        family = "Cabin",
+        face = "bold",
+        color = "blue",
+        size = 12,
+        angle = 45,
+        hjust = 1
+      ),
+        # ggplot2::element_blank(),
+      axis.title.x = ggtext::element_markdown(
+        family = "Cabin",
+        face = "bold",
+        color = "blue",
+        size = 14),
+        # ggplot2::element_blank(),
+      axis.text.y = ggtext::element_markdown(
+        family = "Cabin",
+        face = "bold",
+        color = "blue",
+        size = 12,
+        angle = 45,
+        hjust = 1
+      ),
+        # ggplot2::element_blank(),
+      axis.title.y = ggtext::element_markdown(
+        family = "Cabin",
+        face = "bold",
+        color = "blue",
+        size = 12),
+        # ggplot2::element_blank(),
+      strip.text = ggtext::element_markdown(
+        family = "Cabin",
+        color = "black",
+        size = 12,
+        face = "italic",
+        margin = ggplot2::margin(2, 0, 0.5, 0, "lines")
+      ),
+      axis.text = ggtext::element_markdown(
+        family = "Cabin",
+        color = "black"),
+      panel.background = ggplot2::element_rect(fill = "white", color = NA),
+      plot.background = ggplot2::element_rect(fill = "white", color = NA),
+      legend.position = "none",
+      panel.spacing.x = grid::unit(1.5, "cm"),
+      panel.spacing.y = grid::unit(1.5, "cm"),
+      plot.margin = ggplot2::margin(20, 20, 20, 20, "pt")
+    )
+)
+
+
+
+  
+# Set seed for reproducibility
+base::set.seed(123)
+
+```
+
+
+# Workflow: Bayesian Globe Tossing Analysis (Tidy Approach)
+
+## Problem Summary
+
+Data:     3 water (W), 11 land (L), total n = 14  
+Goal 1:   Posterior distribution for p (probability of water)  
+Goal 2:   Posterior predictive distribution for next 5 tosses  
+
+
+### Step 1: Define the Prior
+
+Choose a prior for p. Standard choice is uniform: Beta(1, 1).
+
+```{r}
+# get data
+data <- rep(c("W", "L"), times = c(3, 11))
+
+# get counts
+W <- sum(data == "W")  # 3
+L <- sum(data == "L")  # 11
+
+# Prior parameters (uniform)
+a <- 1
+b <- 1
+
+# Naive probability for p for W
+naivep <- 3/14   # 0.2142857
+# print(naivep)
+
+
+```
+The 'naive' proportion of water is 3/14 = `r naivep`  
+
+
+### Step 2: Compute the Posterior and Visualize It
+
+Prior:      Beta(a, b) = Beta(1, 1)  
+Posterior:  Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)  
+
+```{r}
+
+# Update uniform distribution to include new data
+
+# Posterior: Beta(a + W, b + L) = Beta(4, 12)
+samples <- tibble::tibble(
+  p = stats::rbeta(n = 10000, shape1 = a + W, shape2 = b + L)
+)   # take random 'x' values from beta with specified parameters and return the height of the curve at each value
+
+
+# Visualize posterior with histogram
+samples |>
+  ggplot2::ggplot(ggplot2::aes(x = p)) +
+  ggplot2::geom_histogram(bins = 50) +
+  ggplot2::scale_x_continuous(
+    breaks = seq(0, 1, by = 0.1),
+    limits = c(0, 1)
+  )
+
+
+# Get mode of Beta(4, 12) to visualize peak point of updated distrib
+mode_p <- (4 - 1) / (4 + 12 - 2)  # gives the peak of the density function
+peak_density <- stats::dbeta(mode_p, shape1 = 4, shape2 = 12)  # returns the height of the curve (density) at the single point = mode_p
+
+
+# Now visualize with density curves
+densities <- tibble::tibble(
+  p = seq(0, 1, length.out = 100),  # 100 evenly spaced x values between 0 - 1
+  prior = stats::dbeta(p, shape1 = 1, shape2 = 1),  # returns the height of the curve (density) at all the x values of the uniform shape (=1)
+  posterior = stats::dbeta(p, shape1 = 4, shape2 = 12) # returns the height of the curve (density) at all the x values of the updated shape from 0 - 1
+) |>
+  tidyr::pivot_longer(
+    cols = c(prior, posterior), 
+    names_to = "distribution", 
+    values_to = "density"
+  ) 
+
+# # view it
+# densities
+
+# plot it
+densities|>
+  ggplot2::ggplot(ggplot2::aes(x = p, y = density, color = distribution)) +
+  ggplot2::geom_line() +
+  ggplot2::annotate(
+    "segment",
+    x = mode_p, xend = mode_p, 
+    y = 0, yend = peak_density,
+    color = "gray50",
+    linewidth = 0.5
+  ) +
+  ggplot2::labs(title = "Prior vs Posterior") +
+  ggplot2::theme(legend.position = "right")
+
+
+```
+
+
+
+### Step 3: Sample from the Posterior
+
+Draw many samples (e.g., 10,000) from the posterior distribution.
+
+```{r}
+# p is the probability of water on a single globe toss.  shape1 = (α)Prior + 'successes'     shape2 = (β)Prior + 'failures'
+
+samples_from_post <- tibble::tibble(
+  p = stats::rbeta(n = 10000, shape1 = 4, shape2 = 12)
+)   # rbeta() = take n random samples as you walk along the curve created from a Beta distrib with empirically specified parameters.  shape1 = 'successes'   shape2 = 'failures' and return the height of curve at each sample point on the curve
+
+# visualize it with histogram (don't use density curves; they are for continuous data)
+samples_from_post |>
+  ggplot2::ggplot(ggplot2::aes(x = p)) +
+  ggplot2::geom_histogram(bins = 50)
+
+```
+
+
+
+### Step 5: Generate Posterior Predictive Distribution
+
+For each posterior sample of p, simulate 5 globe tosses and count water.
+
+This is vectorized: one call handles all samples.
+
+```{r}
+# Simulate 5 tosses for each posterior sample
+predictions <- samples_from_post |>
+  dplyr::mutate(
+    water_in_5 = stats::rbinom(n = dplyr::n(), size = 5, prob = p)
+  )  # rbinom() — simulate binomial draws (n = 5, prob = posterior samples)
+
+# Summarize and add to tibble
+predictions |>
+  dplyr::count(water_in_5) |>
+  dplyr::mutate(prob = n / sum(n))
+
+# Visualize - Each bar shows "how many of my 10,000 simulated samples of 5 'futures' had 0, 1, 2... waters"
+predictions |>
+  dplyr::count(water_in_5) |>
+  ggplot2::ggplot(ggplot2::aes(x = water_in_5, y = n)) +
+  ggplot2::geom_col()
+```
+
+
+----------
+
+# Function Summary
+
+
+```{r}
+tibble::tibble(
+  Step = c("3", "3", "4", "5", "5", "6", "6", "7"),
+  Function = c("stats::rbeta()", "tibble::tibble()", "ggplot2::geom_histogram()",
+               "stats::rbinom()", "dplyr::mutate()", "dplyr::count()",
+               "dplyr::mutate()", "ggplot2::geom_col()"),
+  Purpose = c("Sample posterior (no tidy alt)", "Store samples", "Plot histogram",
+              "Simulate predictions (no tidy alt)", "Add prediction column to df",
+              "Get counts of each sample result", "Add column to data frame", "Plot predictive distribution as bar chart")
+) |>
+  flextable::flextable() |>
+  flextable::add_header_lines("Key R Functions for Bayesian Globe Analysis") |>
+  flextable::color(i = 1, part = "header", color = "blue") |>
+  flextable::italic(i = 1, part = "header") |>
+  flextable::align(i = 1, part = "header", align = "left") |>
+  flextable::fontsize(i = 1, part = "header", size = 12) |>
+  flextable::bg(i = 1, part = "header", bg = "white") |>
+  flextable::bg(i = 2, part = "header", bg = "palegreen") |>
+  flextable::autofit()
+```
+
+
+
+
