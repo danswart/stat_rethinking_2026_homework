@@ -1,5 +1,7 @@
 ---
-title: "Homework_A02"
+title: "Exploration of Homework A02"
+subtitle: "Changing Some of the Parameters"
+description: "At What Point Does the Posterior Predictive Approach the Posterior?"
 authors: 
   - name: "Dan Swart, CPA (ret)"
 date: today
@@ -292,7 +294,7 @@ naivep <- 3/14   # 0.2142857
 
 ```
 \
-The 'naive' point estimate of the proportion of water is 3/14 = `r naivep`  
+The 'naive' proportion of water is 3/14 = `r naivep`  
 \
 
 ### Step 2: Compute the Posterior and Visualize It
@@ -363,9 +365,7 @@ densities|>
 
 ### Step 3: Sample from the Posterior
 \
-Draw many samples (e.g., 10,000) from the posterior distribution and return counts of heights falling in each bin of x-axis values.  Counts on y-axis, proportions on x-axis.
-\
-Note:  The posterior distribution adds support to the 'naive' point estimate but highlights the uncertainty in it.
+Draw many samples (e.g., 10,000) from the posterior distribution and return height of curve at each draw of x-axis value.
 
 ```{r}
 # p is the probability of water on a single globe toss.  shape1 = (α)Prior + 'successes'     shape2 = (β)Prior + 'failures'
@@ -395,14 +395,14 @@ This is vectorized: one call handles all samples.
 predictions <- samples_from_post |>
   dplyr::mutate(
     water_in_5 = stats::rbinom(n = dplyr::n(), size = 5, prob = p)
-  )  # rbinom() = simulate binomial draws (n = 5, prob = posterior samples)
+  )  # rbinom() — simulate binomial draws (n = 5, prob = posterior samples)
 
 # Save the summary
 pred_summary <- predictions |>
   dplyr::count(water_in_5) |>
   dplyr::mutate(prob = n / sum(n))
 
-# Display results in a table
+# Display results in table
 pred_summary |>
   flextable::flextable() |>
   flextable::add_header_lines("Posterior Predictive Distribution") |>
@@ -423,11 +423,7 @@ predictions |>
 ```
 \
 
-Conclusion:  the proportions found in the small group size (5) of the draws from the posterior distribution would support the hypothesis that the proportion of water is most likely to be from a 20% or 0.01% 'globe'.    
-\
-This reflects the large uncertainty in the small samples of 5?  Is it actually very different from the huge sample of 10,000 tabulated in the posterior? 
-\
-I would also ask if this violates the rational subgrouping principal I learned in my frequentist education.
+Conclusion:  the small group size (5) of the draws from the posterior distribution would support the hypothesis that the proportion of water is most likely to be 20% or 0.00%.    This reflects the larger uncertainty in the small samples of 5?  It is very different from the huge sample of 10,000 in the posterior.  
 
 ----------
 

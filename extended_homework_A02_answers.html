@@ -5,7 +5,8 @@
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="dcterms.date" content="2026-01-19">
-<title>Homework_A02</title>
+<meta name="description" content="At What Point Does the Posterior Predictive Approach the Posterior?">
+<title>Exploration of Homework A02</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,25 +56,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-<script src="homework_A02_answers_files/libs/clipboard/clipboard.min.js"></script>
-<script src="homework_A02_answers_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="homework_A02_answers_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="homework_A02_answers_files/libs/quarto-html/popper.min.js"></script>
-<script src="homework_A02_answers_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="homework_A02_answers_files/libs/quarto-html/anchor.min.js"></script>
-<link href="homework_A02_answers_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="homework_A02_answers_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="homework_A02_answers_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="homework_A02_answers_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="homework_A02_answers_files/libs/bootstrap/bootstrap-a55592fe5fe35d52a71ffe67936ae3bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="homework_A02_answers_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="homework_A02_answers_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="homework_A02_answers_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><!-- Current as of: 2025-08-25 --><link rel="stylesheet" href="swart.css">
+<script src="extended_homework_A02_answers_files/libs/clipboard/clipboard.min.js"></script>
+<script src="extended_homework_A02_answers_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="extended_homework_A02_answers_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="extended_homework_A02_answers_files/libs/quarto-html/popper.min.js"></script>
+<script src="extended_homework_A02_answers_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="extended_homework_A02_answers_files/libs/quarto-html/anchor.min.js"></script>
+<link href="extended_homework_A02_answers_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="extended_homework_A02_answers_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="extended_homework_A02_answers_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="extended_homework_A02_answers_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="extended_homework_A02_answers_files/libs/bootstrap/bootstrap-a55592fe5fe35d52a71ffe67936ae3bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="extended_homework_A02_answers_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="extended_homework_A02_answers_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="extended_homework_A02_answers_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><!-- Current as of: 2025-08-25 --><link rel="stylesheet" href="swart.css">
 <link rel="stylesheet" href="tachyons.min.css">
 <link rel="stylesheet" href="r-colors.css">
-<link href="homework_A02_answers_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
-<script src="homework_A02_answers_files/libs/tabwid-1.1.3/tabwid.js"></script><link href="homework_A02_answers_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="homework_A02_answers_files/libs/pagedtable-1.1/js/pagedtable.js"></script><link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet">
+<link href="extended_homework_A02_answers_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="extended_homework_A02_answers_files/libs/tabwid-1.1.3/tabwid.js"></script><link href="extended_homework_A02_answers_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="extended_homework_A02_answers_files/libs/pagedtable-1.1/js/pagedtable.js"></script><link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cabin&amp;display=swap" rel="stylesheet">
@@ -111,12 +112,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#function-summary" id="toc-function-summary" class="nav-link" data-scroll-target="#function-summary">Function Summary</a></li>
-  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="homework_A02_answers.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li><li><a href="homework_A02_answers.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="extended_homework_A02_answers.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li><li><a href="extended_homework_A02_answers.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
 <main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Homework_A02</h1>
+<h1 class="title">Exploration of Homework A02</h1>
+<p class="subtitle lead">Changing Some of the Parameters</p>
 </div>
 
+<div>
+  <div class="description">
+    At What Point Does the Posterior Predictive Approach the Posterior?
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page-left">
@@ -167,7 +174,7 @@ Goal 2: Posterior predictive distribution for next 5 tosses</p>
 </details>
 </div>
 <p><br>
-The ‘naive’ point estimate of the proportion of water is 3/14 = 0.2142857<br><br></p>
+The ‘naive’ proportion of water is 3/14 = 0.2142857<br><br></p>
 </section><section id="step-2-compute-the-posterior-and-visualize-it" class="level3"><h3 class="anchored" data-anchor-id="step-2-compute-the-posterior-and-visualize-it">Step 2: Compute the Posterior and Visualize It</h3>
 <p><br>
 Prior: Beta(a, b) = Beta(1, 1)<br><br>
@@ -191,7 +198,7 @@ Posterior: Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)</p>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="3900"></a></p>
+<figure class="figure"><p><a href="extended_homework_A02_answers_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="extended_homework_A02_answers_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="3900"></a></p>
 </figure>
 </div>
 </div>
@@ -230,7 +237,7 @@ Posterior: Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)</p>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-2-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="3900"></a></p>
+<figure class="figure"><p><a href="extended_homework_A02_answers_files/figure-html/unnamed-chunk-2-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="extended_homework_A02_answers_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="3900"></a></p>
 </figure>
 </div>
 </div>
@@ -238,8 +245,7 @@ Posterior: Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)</p>
 <p><br><br></p>
 </section><section id="step-3-sample-from-the-posterior" class="level3"><h3 class="anchored" data-anchor-id="step-3-sample-from-the-posterior">Step 3: Sample from the Posterior</h3>
 <p><br>
-Draw many samples (e.g., 10,000) from the posterior distribution and return counts of heights falling in each bin of x-axis values. Counts on y-axis, proportions on x-axis.<br>
-Note: The posterior distribution adds support to the ‘naive’ point estimate but highlights the uncertainty in it.</p>
+Draw many samples (e.g., 10,000) from the posterior distribution and return height of curve at each draw of x-axis value.</p>
 <div class="cell">
 <details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># p is the probability of water on a single globe toss.  shape1 = (α)Prior + 'successes'     shape2 = (β)Prior + 'failures'</span></span>
 <span></span>
@@ -253,7 +259,7 @@ Note: The posterior distribution adds support to the ‘naive’ point estimate 
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="3900"></a></p>
+<figure class="figure"><p><a href="extended_homework_A02_answers_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="extended_homework_A02_answers_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="3900"></a></p>
 </figure>
 </div>
 </div>
@@ -268,14 +274,14 @@ This is vectorized: one call handles all samples.</p>
 <span><span class="va">predictions</span> <span class="op">&lt;-</span> <span class="va">samples_from_post</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>    water_in_5 <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="va">p</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>  <span class="co"># rbinom() = simulate binomial draws (n = 5, prob = posterior samples)</span></span>
+<span>  <span class="op">)</span>  <span class="co"># rbinom() — simulate binomial draws (n = 5, prob = posterior samples)</span></span>
 <span></span>
 <span><span class="co"># Save the summary</span></span>
 <span><span class="va">pred_summary</span> <span class="op">&lt;-</span> <span class="va">predictions</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">water_in_5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>prob <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Display results in a table</span></span>
+<span><span class="co"># Display results in table</span></span>
 <span><span class="va">pred_summary</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/add_header_lines.html">add_header_lines</a></span><span class="op">(</span><span class="st">"Posterior Predictive Distribution"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -288,46 +294,46 @@ This is vectorized: one call handles all samples.</p>
 <span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-254926b8{}.cl-2528fb36{font-family:'Cabin';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;}.cl-2528fb4a{font-family:'Cabin';font-size:14pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2540db7a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:4pt;padding-right:4pt;line-height: 1.3;background-color:transparent;}.cl-2540db84{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:4pt;padding-right:4pt;line-height: 1.3;background-color:transparent;}.cl-25411978{width:1.184in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2541198c{width:0.727in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2541198d{width:0.944in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2541198e{width:1.184in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2541198f{width:0.727in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-25411996{width:0.944in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-25411997{width:1.184in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-25411998{width:0.727in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-254119a0{width:0.944in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-254119a1{width:1.184in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-254119aa{width:0.727in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-254119ab{width:0.944in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-254119ac{width:1.184in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-254119b4{width:0.727in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-254119b5{width:0.944in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-254926b8">
+<style>.cl-f59a8a50{}.cl-f57bb350{font-family:'Cabin';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;}.cl-f57bb35a{font-family:'Cabin';font-size:14pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f592c568{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:4pt;padding-right:4pt;line-height: 1.3;background-color:transparent;}.cl-f592c572{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:4pt;padding-right:4pt;line-height: 1.3;background-color:transparent;}.cl-f592fd94{width:1.184in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fd9e{width:0.727in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fda8{width:0.944in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fda9{width:1.184in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdb2{width:0.727in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdb3{width:0.944in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdb4{width:1.184in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdb5{width:0.727in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdbc{width:0.944in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdbd{width:1.184in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdbe{width:0.727in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdbf{width:0.944in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdc6{width:1.184in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdc7{width:0.727in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f592fdc8{width:0.944in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-f59a8a50">
 <thead>
-<tr style="overflow-wrap:break-word;"><th colspan="3" class="cl-25411978"><p class="cl-2540db7a"><span class="cl-2528fb36">Posterior Predictive Distribution</span></p></th></tr>
+<tr style="overflow-wrap:break-word;"><th colspan="3" class="cl-f592fd94"><p class="cl-f592c568"><span class="cl-f57bb350">Posterior Predictive Distribution</span></p></th></tr>
 <tr style="overflow-wrap:break-word;">
-<th class="cl-2541198e"><p class="cl-2540db84"><span class="cl-2528fb4a">water_in_5</span></p></th>
-<th class="cl-2541198f"><p class="cl-2540db84"><span class="cl-2528fb4a">n</span></p></th>
-<th class="cl-25411996"><p class="cl-2540db84"><span class="cl-2528fb4a">prob</span></p></th>
+<th class="cl-f592fda9"><p class="cl-f592c572"><span class="cl-f57bb35a">water_in_5</span></p></th>
+<th class="cl-f592fdb2"><p class="cl-f592c572"><span class="cl-f57bb35a">n</span></p></th>
+<th class="cl-f592fdb3"><p class="cl-f592c572"><span class="cl-f57bb35a">prob</span></p></th>
 </tr>
 </thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-25411997"><p class="cl-2540db84"><span class="cl-2528fb4a">0</span></p></td>
-<td class="cl-25411998"><p class="cl-2540db84"><span class="cl-2528fb4a">2 887</span></p></td>
-<td class="cl-254119a0"><p class="cl-2540db84"><span class="cl-2528fb4a">0.2887</span></p></td>
+<td class="cl-f592fdb4"><p class="cl-f592c572"><span class="cl-f57bb35a">0</span></p></td>
+<td class="cl-f592fdb5"><p class="cl-f592c572"><span class="cl-f57bb35a">2 887</span></p></td>
+<td class="cl-f592fdbc"><p class="cl-f592c572"><span class="cl-f57bb35a">0.2887</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-254119a1"><p class="cl-2540db84"><span class="cl-2528fb4a">1</span></p></td>
-<td class="cl-254119aa"><p class="cl-2540db84"><span class="cl-2528fb4a">3 477</span></p></td>
-<td class="cl-254119ab"><p class="cl-2540db84"><span class="cl-2528fb4a">0.3477</span></p></td>
+<td class="cl-f592fdbd"><p class="cl-f592c572"><span class="cl-f57bb35a">1</span></p></td>
+<td class="cl-f592fdbe"><p class="cl-f592c572"><span class="cl-f57bb35a">3 477</span></p></td>
+<td class="cl-f592fdbf"><p class="cl-f592c572"><span class="cl-f57bb35a">0.3477</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-25411997"><p class="cl-2540db84"><span class="cl-2528fb4a">2</span></p></td>
-<td class="cl-25411998"><p class="cl-2540db84"><span class="cl-2528fb4a">2 333</span></p></td>
-<td class="cl-254119a0"><p class="cl-2540db84"><span class="cl-2528fb4a">0.2333</span></p></td>
+<td class="cl-f592fdb4"><p class="cl-f592c572"><span class="cl-f57bb35a">2</span></p></td>
+<td class="cl-f592fdb5"><p class="cl-f592c572"><span class="cl-f57bb35a">2 333</span></p></td>
+<td class="cl-f592fdbc"><p class="cl-f592c572"><span class="cl-f57bb35a">0.2333</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-25411997"><p class="cl-2540db84"><span class="cl-2528fb4a">3</span></p></td>
-<td class="cl-25411998"><p class="cl-2540db84"><span class="cl-2528fb4a">982</span></p></td>
-<td class="cl-254119a0"><p class="cl-2540db84"><span class="cl-2528fb4a">0.0982</span></p></td>
+<td class="cl-f592fdb4"><p class="cl-f592c572"><span class="cl-f57bb35a">3</span></p></td>
+<td class="cl-f592fdb5"><p class="cl-f592c572"><span class="cl-f57bb35a">982</span></p></td>
+<td class="cl-f592fdbc"><p class="cl-f592c572"><span class="cl-f57bb35a">0.0982</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-25411997"><p class="cl-2540db84"><span class="cl-2528fb4a">4</span></p></td>
-<td class="cl-25411998"><p class="cl-2540db84"><span class="cl-2528fb4a">281</span></p></td>
-<td class="cl-254119a0"><p class="cl-2540db84"><span class="cl-2528fb4a">0.0281</span></p></td>
+<td class="cl-f592fdb4"><p class="cl-f592c572"><span class="cl-f57bb35a">4</span></p></td>
+<td class="cl-f592fdb5"><p class="cl-f592c572"><span class="cl-f57bb35a">281</span></p></td>
+<td class="cl-f592fdbc"><p class="cl-f592c572"><span class="cl-f57bb35a">0.0281</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-254119ac"><p class="cl-2540db84"><span class="cl-2528fb4a">5</span></p></td>
-<td class="cl-254119b4"><p class="cl-2540db84"><span class="cl-2528fb4a">40</span></p></td>
-<td class="cl-254119b5"><p class="cl-2540db84"><span class="cl-2528fb4a">0.0040</span></p></td>
+<td class="cl-f592fdc6"><p class="cl-f592c572"><span class="cl-f57bb35a">5</span></p></td>
+<td class="cl-f592fdc7"><p class="cl-f592c572"><span class="cl-f57bb35a">40</span></p></td>
+<td class="cl-f592fdc8"><p class="cl-f592c572"><span class="cl-f57bb35a">0.0040</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -340,13 +346,13 @@ This is vectorized: one call handles all samples.</p>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><a href="homework_A02_answers_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="homework_A02_answers_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="3900"></a></p>
+<figure class="figure"><p><a href="extended_homework_A02_answers_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="extended_homework_A02_answers_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="3900"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p><br></p>
-<p>Conclusion: the small group size (5) of the draws from the posterior distribution would support the hypothesis that the proportion of water is most likely to be 20% or 0.00%. This reflects the large uncertainty in the small samples of 5? Is it very different from the huge sample of 10,000 in the posterior?</p>
+<p>Conclusion: the small group size (5) of the draws from the posterior distribution would support the hypothesis that the proportion of water is most likely to be 20% or 0.00%. This reflects the larger uncertainty in the small samples of 5? It is very different from the huge sample of 10,000 in the posterior.</p>
 <hr></section></section></section><section id="function-summary" class="level1"><h1>Function Summary</h1>
 <div class="cell">
 <details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
@@ -369,56 +375,56 @@ This is vectorized: one call handles all samples.</p>
 <span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-26134de4{}.cl-2605f414{font-family:'Cabin';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;}.cl-2605f428{font-family:'Cabin';font-size:14pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-260a7584{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:4pt;padding-right:4pt;line-height: 1.3;background-color:transparent;}.cl-260aa7a2{width:0.635in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7ac{width:2.479in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7ad{width:3.386in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7b6{width:0.635in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7b7{width:2.479in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7c0{width:3.386in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7c1{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7c2{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7ca{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7cb{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7d4{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7d5{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7d6{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7d7{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-260aa7de{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-26134de4">
+<style>.cl-f65da27e{}.cl-f6506eb0{font-family:'Cabin';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;}.cl-f6506eba{font-family:'Cabin';font-size:14pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f65493f0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:4pt;padding-right:4pt;line-height: 1.3;background-color:transparent;}.cl-f654df7c{width:0.635in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df7d{width:2.479in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df86{width:3.386in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df87{width:0.635in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df88{width:2.479in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df90{width:3.386in;background-color:rgba(152, 251, 152, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 1.5pt solid rgba(169, 169, 169, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df91{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df92{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df9a{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df9b{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654df9c{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654dfa4{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654dfa5{width:0.635in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654dfa6{width:2.479in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f654dfa7{width:3.386in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(169, 169, 169, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-f65da27e">
 <thead>
-<tr style="overflow-wrap:break-word;"><th colspan="3" class="cl-260aa7a2"><p class="cl-260a7584"><span class="cl-2605f414">Key R Functions for Bayesian Globe Analysis</span></p></th></tr>
+<tr style="overflow-wrap:break-word;"><th colspan="3" class="cl-f654df7c"><p class="cl-f65493f0"><span class="cl-f6506eb0">Key R Functions for Bayesian Globe Analysis</span></p></th></tr>
 <tr style="overflow-wrap:break-word;">
-<th class="cl-260aa7b6"><p class="cl-260a7584"><span class="cl-2605f428">Step</span></p></th>
-<th class="cl-260aa7b7"><p class="cl-260a7584"><span class="cl-2605f428">Function</span></p></th>
-<th class="cl-260aa7c0"><p class="cl-260a7584"><span class="cl-2605f428">Purpose</span></p></th>
+<th class="cl-f654df87"><p class="cl-f65493f0"><span class="cl-f6506eba">Step</span></p></th>
+<th class="cl-f654df88"><p class="cl-f65493f0"><span class="cl-f6506eba">Function</span></p></th>
+<th class="cl-f654df90"><p class="cl-f65493f0"><span class="cl-f6506eba">Purpose</span></p></th>
 </tr>
 </thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7c1"><p class="cl-260a7584"><span class="cl-2605f428">3</span></p></td>
-<td class="cl-260aa7c2"><p class="cl-260a7584"><span class="cl-2605f428">stats::rbeta()</span></p></td>
-<td class="cl-260aa7ca"><p class="cl-260a7584"><span class="cl-2605f428">Sample posterior (no tidy alt)</span></p></td>
+<td class="cl-f654df91"><p class="cl-f65493f0"><span class="cl-f6506eba">3</span></p></td>
+<td class="cl-f654df92"><p class="cl-f65493f0"><span class="cl-f6506eba">stats::rbeta()</span></p></td>
+<td class="cl-f654df9a"><p class="cl-f65493f0"><span class="cl-f6506eba">Sample posterior (no tidy alt)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7c1"><p class="cl-260a7584"><span class="cl-2605f428">3</span></p></td>
-<td class="cl-260aa7c2"><p class="cl-260a7584"><span class="cl-2605f428">tibble::tibble()</span></p></td>
-<td class="cl-260aa7ca"><p class="cl-260a7584"><span class="cl-2605f428">Store samples</span></p></td>
+<td class="cl-f654df91"><p class="cl-f65493f0"><span class="cl-f6506eba">3</span></p></td>
+<td class="cl-f654df92"><p class="cl-f65493f0"><span class="cl-f6506eba">tibble::tibble()</span></p></td>
+<td class="cl-f654df9a"><p class="cl-f65493f0"><span class="cl-f6506eba">Store samples</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7cb"><p class="cl-260a7584"><span class="cl-2605f428">4</span></p></td>
-<td class="cl-260aa7d4"><p class="cl-260a7584"><span class="cl-2605f428">ggplot2::geom_histogram()</span></p></td>
-<td class="cl-260aa7d5"><p class="cl-260a7584"><span class="cl-2605f428">Plot histogram</span></p></td>
+<td class="cl-f654df9b"><p class="cl-f65493f0"><span class="cl-f6506eba">4</span></p></td>
+<td class="cl-f654df9c"><p class="cl-f65493f0"><span class="cl-f6506eba">ggplot2::geom_histogram()</span></p></td>
+<td class="cl-f654dfa4"><p class="cl-f65493f0"><span class="cl-f6506eba">Plot histogram</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7c1"><p class="cl-260a7584"><span class="cl-2605f428">5</span></p></td>
-<td class="cl-260aa7c2"><p class="cl-260a7584"><span class="cl-2605f428">stats::rbinom()</span></p></td>
-<td class="cl-260aa7ca"><p class="cl-260a7584"><span class="cl-2605f428">Simulate predictions (no tidy alt)</span></p></td>
+<td class="cl-f654df91"><p class="cl-f65493f0"><span class="cl-f6506eba">5</span></p></td>
+<td class="cl-f654df92"><p class="cl-f65493f0"><span class="cl-f6506eba">stats::rbinom()</span></p></td>
+<td class="cl-f654df9a"><p class="cl-f65493f0"><span class="cl-f6506eba">Simulate predictions (no tidy alt)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7c1"><p class="cl-260a7584"><span class="cl-2605f428">5</span></p></td>
-<td class="cl-260aa7c2"><p class="cl-260a7584"><span class="cl-2605f428">dplyr::mutate()</span></p></td>
-<td class="cl-260aa7ca"><p class="cl-260a7584"><span class="cl-2605f428">Add prediction column to df</span></p></td>
+<td class="cl-f654df91"><p class="cl-f65493f0"><span class="cl-f6506eba">5</span></p></td>
+<td class="cl-f654df92"><p class="cl-f65493f0"><span class="cl-f6506eba">dplyr::mutate()</span></p></td>
+<td class="cl-f654df9a"><p class="cl-f65493f0"><span class="cl-f6506eba">Add prediction column to df</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7c1"><p class="cl-260a7584"><span class="cl-2605f428">6</span></p></td>
-<td class="cl-260aa7c2"><p class="cl-260a7584"><span class="cl-2605f428">dplyr::count()</span></p></td>
-<td class="cl-260aa7ca"><p class="cl-260a7584"><span class="cl-2605f428">Get counts of each sample result</span></p></td>
+<td class="cl-f654df91"><p class="cl-f65493f0"><span class="cl-f6506eba">6</span></p></td>
+<td class="cl-f654df92"><p class="cl-f65493f0"><span class="cl-f6506eba">dplyr::count()</span></p></td>
+<td class="cl-f654df9a"><p class="cl-f65493f0"><span class="cl-f6506eba">Get counts of each sample result</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7c1"><p class="cl-260a7584"><span class="cl-2605f428">6</span></p></td>
-<td class="cl-260aa7c2"><p class="cl-260a7584"><span class="cl-2605f428">dplyr::mutate()</span></p></td>
-<td class="cl-260aa7ca"><p class="cl-260a7584"><span class="cl-2605f428">Add column to data frame</span></p></td>
+<td class="cl-f654df91"><p class="cl-f65493f0"><span class="cl-f6506eba">6</span></p></td>
+<td class="cl-f654df92"><p class="cl-f65493f0"><span class="cl-f6506eba">dplyr::mutate()</span></p></td>
+<td class="cl-f654df9a"><p class="cl-f65493f0"><span class="cl-f6506eba">Add column to data frame</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-260aa7d6"><p class="cl-260a7584"><span class="cl-2605f428">7</span></p></td>
-<td class="cl-260aa7d7"><p class="cl-260a7584"><span class="cl-2605f428">ggplot2::geom_col()</span></p></td>
-<td class="cl-260aa7de"><p class="cl-260a7584"><span class="cl-2605f428">Plot predictive distribution as bar chart</span></p></td>
+<td class="cl-f654dfa5"><p class="cl-f65493f0"><span class="cl-f6506eba">7</span></p></td>
+<td class="cl-f654dfa6"><p class="cl-f65493f0"><span class="cl-f6506eba">ggplot2::geom_col()</span></p></td>
+<td class="cl-f654dfa7"><p class="cl-f65493f0"><span class="cl-f6506eba">Plot predictive distribution as bar chart</span></p></td>
 </tr>
 </tbody>
 </table>
