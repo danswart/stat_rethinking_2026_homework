@@ -258,11 +258,21 @@ base::set.seed(123)
 
 ### HOMEWORK A2
 
-A2. Suppose the globe tossing data (Chapter 2) had turned out to be 3 water
-and 11 land. Construct the posterior distribution. Then using the poste-
-rior distribution, compute the posterior predictive distribution for the next
+A2. Suppose the globe tossing data (Chapter 2) had turned out to be 3 water and 11 land. Construct the posterior distribution. Then using the posterior distribution, compute the posterior predictive distribution for the next
 5 tosses of the same globe
 
+
+Data (3W, 11L)
+    ↓
+Posterior (density curve over p)
+    ↓
+Samples (bag of 10k plausible p values)
+    ↓
+Simulate (5 tosses per p → one count per future using the binomial)
+    ↓
+Tabulate (how often each count occurred in the 10k possible 'futures')
+    ↓
+Posterior Predictive Distribution
 
 ## Problem Summary
 
@@ -430,6 +440,85 @@ This reflects the large uncertainty in the small samples of 5?  Is it actually v
 I would also ask if this violates the rational subgrouping principal I learned in my frequentist education.
 
 ----------
+
+# Two Ways to Get the Posterior
+\
+## Way 1: Grid Approximation (Garden of Forking Paths)
+\
+This is taugt first:
+
+```{r}
+# Define grid of possible p values
+p_grid <- seq(0, 1, length.out = 100)
+
+# Prior (uniform)
+prior <- rep(1, 100)
+
+# Likelihood: how many paths lead to 3W, 11L for each p?
+likelihood <- stats::dbinom(3, size = 14, prob = p_grid)
+
+# Posterior ∝ prior × likelihood
+posterior_raw <- prior * likelihood
+
+# Normalize so it sums to 1
+posterior <- posterior_raw / sum(posterior_raw)
+```
+
+This **is** counting paths—`dbinom()` computes how many ways to get 3W in 14 tosses for each value of p.
+
+
+
+
+
+## **Way 2: Conjugate Solution (Mathematical Shortcut)**
+
+Mathematicians proved: if your prior is Beta and your data is binomial, the posterior is also Beta.
+```
+Prior:     Beta(1, 1)
+Data:      3W, 11L
+Posterior: Beta(1+3, 1+11) = Beta(4, 12)
+```
+
+No grid needed. Just update the parameters and compute.
+
+
+
+## How They Connect  
+\
+Grid ApproximationConjugate SolutionCount paths at 100 pointsExact curve everywheredbinom() does the countingdbeta() gives the resultApproximateExactWorks for any modelOnly works for special prior/likelihood pairs
+
+
+### Visualize Both
+
+```{r}
+tibble::tibble(
+  p = seq(0, 1, length.out = 100),
+  grid_method = stats::dbinom(3, size = 14, prob = p),
+  conjugate = stats::dbeta(p, shape1 = 4, shape2 = 12)
+) |>
+  dplyr::mutate(grid_method = grid_method / sum(grid_method) * 100) |>
+  tidyr::pivot_longer(cols = -p, names_to = "method", values_to = "density") |>
+  ggplot2::ggplot(ggplot2::aes(x = p, y = density, color = method)) +
+  ggplot2::geom_line()
+```
+
+Same shape. The conjugate solution is just the analytical answer to the path-counting question.
+
+
+## Summary
+
+Question	Answer
+Where does the curve come from?	Counting paths (via likelihood) weighted by prior
+Why Beta(4, 12)?	Mathematical shortcut that gives the same answer
+What's dbinom() doing?	Computing "how many ways to get 3W in 14 tosses if p = x"
+
+
+
+***The density curve IS the garden—just expressed as a continuous function instead of discrete counts.***
+
+
+
+
 
 # Function Summary
 
