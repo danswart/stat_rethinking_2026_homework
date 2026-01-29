@@ -1,0 +1,24 @@
+library(igraph)
+library(rethinking)
+
+### ORIGINAL CODE FORCES THE MYQUARTZ INTERFACE
+#
+# blank(bg="black")
+#
+# g <- watts.strogatz.game(1, 100, 1, 0.5, loops = FALSE, multiple = FALSE)
+#
+# plot(g, vertex.label= NA, edge.arrow.size=0.05, xlab = "" , vertex.color="white" , edge.color="white", bg="black" , vertex.frame.color="white" , edge.width=3 , vertex.size=5)
+
+g <- watts.strogatz.game(1, 100, 1, 0.5, loops = FALSE, multiple = FALSE)
+
+par(bg = "black", mar = c(0, 0, 0, 0))
+plot(
+  g,
+  vertex.label = NA,
+  edge.arrow.size = 0.05,
+  vertex.color = "white",
+  edge.color = "white",
+  vertex.frame.color = "white",
+  edge.width = 3,
+  vertex.size = 5
+)

@@ -1,5 +1,5 @@
 ---
-title: "Homework_A02"
+title: "homework_A02"
 authors: 
   - name: "Dan Swart, CPA (ret)"
 date: today
@@ -251,40 +251,13 @@ base::set.seed(123)
 ```
 
 
-### GLOSSARY
-
-1. ***Probability mass*** assigns probability to outcomes
-2. ***Likelihood*** RANKS parameter values by how well they explain observed data
-
-
-# Workflow: Bayesian Globe Tossing Analysis (Tidy Approach)  
-
-
-## STATISTICAL RETHINKING 2026  
-
-### HOMEWORK A2
-
-A2. Suppose the globe tossing data (Chapter 2) had turned out to be 3 water and 11 land. Construct the posterior distribution. Then using the posterior distribution, compute the posterior predictive distribution for the next
-5 tosses of the same globe
-
-
-Data (3W, 11L)
-    ↓
-Posterior (density curve over p)
-    ↓
-Samples (bag of 10k plausible p values)
-    ↓
-Simulate (5 tosses per p → one count per future using the binomial)
-    ↓
-Tabulate (how often each count occurred in the 10k possible 'futures')
-    ↓
-Posterior Predictive Distribution
+# Workflow: Bayesian Globe Tossing Analysis (Tidy Approach)
 
 ## Problem Summary
 
-Data:     3 water (W), 11 land (L), total n = 14  
-Goal 1:   Posterior distribution for p (probability of water)  
-Goal 2:   Posterior predictive distribution for next 5 tosses  
+Data:     3 water (W), 11 land (L), total n = 14
+Goal 1:   Posterior distribution for p (probability of water)
+Goal 2:   Posterior predictive distribution for next 5 tosses
 
 
 ### Step 1: Define the Prior
@@ -303,62 +276,51 @@ L <- sum(data == "L")  # 11
 a <- 1
 b <- 1
 
-# 'Naive' probability for p for W as point estimate
+# Naive probability for p for W
 naivep <- 3/14   # 0.2142857
+print(naivep)
+
 
 ```
-\
-The 'naive' point estimate of the proportion of water is 3/14 = `r naivep`  
-\
 
 ### Step 2: Compute the Posterior and Visualize It
-\
-Prior:      Beta(a, b) = Beta(1, 1)  
-\
-Posterior:  Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)  
+
+Prior:      Beta(a, b) = Beta(1, 1)
+Posterior:  Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)
 
 ```{r}
 
-# Update uniform distribution to include new data
+# First with histogram
 
 # Posterior: Beta(a + W, b + L) = Beta(4, 12)
 samples <- tibble::tibble(
   p = stats::rbeta(n = 10000, shape1 = a + W, shape2 = b + L)
-)   # take random 'x' values from beta with specified parameters and return the height of the curve at each value
+)   # rbeta() = take n random samples from a Beta distrib with specified parameters
 
 
 # Visualize posterior with histogram
 samples |>
   ggplot2::ggplot(ggplot2::aes(x = p)) +
-  ggplot2::geom_histogram(bins = 50) +
-  ggplot2::scale_x_continuous(
-    breaks = seq(0, 1, by = 0.1),
-    limits = c(0, 1)
-  )
+  ggplot2::geom_histogram(bins = 30)
 
 
-# Get mode of Beta(4, 12) to visualize peak point of updated distrib
+
+# Mode of Beta(4, 12) to visualize peak point of distrib
 mode_p <- (4 - 1) / (4 + 12 - 2)  # gives the peak of the density function
-peak_density <- stats::dbeta(mode_p, shape1 = 4, shape2 = 12)  # returns the height of the curve (density) at the single point = mode_p
+peak_density <- stats::dbeta(mode_p, shape1 = 4, shape2 = 12)  # dbeta() = gives the density function of the Beta distrib with specified parameters
 
 
-# Now visualize with density curves
-densities <- tibble::tibble(
-  p = seq(0, 1, length.out = 100),  # 100 evenly spaced x values between 0 - 1
-  prior = stats::dbeta(p, shape1 = 1, shape2 = 1),  # returns the height of the curve (density) at all the x values of the uniform shape (=1)
-  posterior = stats::dbeta(p, shape1 = 4, shape2 = 12) # returns the height of the curve (density) at all the x values of the posterior shape from 0 - 1
+# Now with density curves
+tibble::tibble(
+  p = seq(0, 1, length.out = 100),  # 100 evenly spaced values between 0 - 1
+  prior = stats::dbeta(p, shape1 = 1, shape2 = 1), # gives the Beta density function for uniform values a=1 and b=1
+  posterior = stats::dbeta(p, shape1 = 4, shape2 = 12) # gives the density function of the beta distrib using the empirically derived parameters
 ) |>
   tidyr::pivot_longer(
     cols = c(prior, posterior), 
     names_to = "distribution", 
     values_to = "density"
-  ) 
-
-# # view it
-# densities     # testing
-
-# plot it
-densities|>
+  ) |>
   ggplot2::ggplot(ggplot2::aes(x = p, y = density, color = distribution)) +
   ggplot2::geom_line() +
   ggplot2::annotate(
@@ -368,60 +330,104 @@ densities|>
     color = "gray50",
     linewidth = 0.5
   ) +
-  ggplot2::labs(title = "Prior vs Posterior") +
-  ggplot2::theme(legend.position = "right")
-
-
+  ggplot2::labs(title = "Prior vs Posterior")
 ```
-\
-\
+
 
 
 ### Step 3: Sample from the Posterior
-\
-Draw many samples (e.g., 10,000) from the posterior distribution and return counts of heights falling in each bin of x-axis values.  Counts on y-axis, proportions on x-axis.
-\
-Note:  The posterior distribution adds support to the 'naive' point estimate but highlights the uncertainty in it.
+
+Draw many samples (e.g., 10,000) from the posterior distribution.
 
 ```{r}
 # p is the probability of water on a single globe toss.  shape1 = (α)Prior + 'successes'     shape2 = (β)Prior + 'failures'
 
 samples_from_post <- tibble::tibble(
   p = stats::rbeta(n = 10000, shape1 = 4, shape2 = 12)
-)   # rbeta() = take n random samples as you walk along the curve created from a Beta distrib with empirically specified parameters (the posterior).  shape1 = 'successes'   shape2 = 'failures' and return the height of the curve at each sample point on the curve
+)   # rbeta() = take n random samples from a Beta distrib with empirically specified parameters.  shape1 = 'successes'   shape2 = 'failures'
 
-# visualize it with histogram (don't use density curves; they are for continuous data)
+# visualize it with histogram (density curves are for continuous data)
 samples_from_post |>
   ggplot2::ggplot(ggplot2::aes(x = p)) +
-  ggplot2::geom_histogram(bins = 50)
+  ggplot2::geom_histogram(bins = 30)
 
 ```
-\
-\
+
+
+
 
 
 ### Step 5: Generate Posterior Predictive Distribution
-\
-For each of the 10k posterior samples of p, simulate 5 globe tosses and count water.
-\
+
+For each posterior sample of p, simulate 5 globe tosses and count water.
+
+stats::
+
 This is vectorized: one call handles all samples.
 
 ```{r}
-# Simulate 5 tosses for each of the 10,000 posterior sample
+# Simulate 5 tosses for each posterior sample
 predictions <- samples_from_post |>
   dplyr::mutate(
     water_in_5 = stats::rbinom(n = dplyr::n(), size = 5, prob = p)
-  )  # rbinom() = simulate binomial draws (n = 5, prob = posterior samples)
+  )  # rbinom() — simulate binomial draws (n = 5, prob = posterior samples)
 
-# Save the summary
-pred_summary <- predictions |>
+# Summarize
+predictions |>
   dplyr::count(water_in_5) |>
   dplyr::mutate(prob = n / sum(n))
 
-# Display results in a table
-pred_summary |>
+# Visualize - Each bar shows "how many of my 10,000 simulated futures had 0, 1, 2... waters?"
+predictions |>
+  dplyr::count(water_in_5) |>
+  ggplot2::ggplot(ggplot2::aes(x = water_in_5, y = n)) +
+  ggplot2::geom_col()
+```
+
+
+
+### Step 6: Summarize/Visualize the Predictive Distribution
+
+Tabulate or plot the distribution of water counts (0–5) across simulations.
+
+base::table() — frequency counts
+base::prop.table() — convert to probabilities
+graphics::barplot() — visualize
+
+```{r}
+
+# Simulate 5 tosses for each posterior sample
+predictions <- samples_from_post |>
+  dplyr::mutate(
+    water_in_5 = stats::rbinom(n = dplyr::n(), size = 5, prob = p)
+  )
+
+# Summarize
+predictions |>
+  dplyr::count(water_in_5) |>
+  dplyr::mutate(prob = n / sum(n))
+
+# Visualize - Each bar shows "how many of my 10,000 simulated futures had 0, 1, 2... waters?"
+predictions |>
+  dplyr::count(water_in_5) |>
+  ggplot2::ggplot(ggplot2::aes(x = water_in_5, y = n)) +
+  ggplot2::geom_col()
+```
+
+
+## Function Summary
+
+
+```{r}
+tibble::tibble(
+  Step = c("3", "5", "6", "6", "Viz"),  # Step = col name, contents = row contents
+  Function = c("stats::rbeta()", "stats::rbinom()", "base::table()", 
+               "base::prop.table()", "graphics::hist(), graphics::barplot()"),  # Function = col name, contents = row contents
+  Purpose = c("Sample posterior", "Simulate predictions", "Tabulate results",
+              "Normalize to probabilities", "Plot distributions") # Purpose = col name, contents = row contents
+) |>
   flextable::flextable() |>
-  flextable::add_header_lines("Posterior Predictive Distribution") |>
+  flextable::add_header_lines("Key R Functions for Bayesian Globe Analysis") |>
   flextable::color(i = 1, part = "header", color = "blue") |>
   flextable::italic(i = 1, part = "header") |>
   flextable::align(i = 1, part = "header", align = "left") |>
@@ -429,105 +435,67 @@ pred_summary |>
   flextable::bg(i = 1, part = "header", bg = "white") |>
   flextable::bg(i = 2, part = "header", bg = "palegreen") |>
   flextable::autofit()
-
-# Display results in bar chart - Each bar shows "how many of my 10,000 simulated samples of 5 'futures' had 0, 1, 2... waters, expressed as a proportion"
-predictions |>
-  dplyr::count(water_in_5) |>
-  ggplot2::ggplot(ggplot2::aes(x = water_in_5, y = n)) +
-  ggplot2::geom_col()
-
 ```
-\
 
-Conclusion:  the proportions found in the small group size (5) of the draws from the posterior distribution would support the hypothesis that the proportion of water is most likely to be from a 20% or 0.01% 'globe'.    
-\
-This reflects the large uncertainty in the small samples of 5?  Is it actually very different from the huge sample of 10,000 tabulated in the posterior? 
-\
-I would also ask if this violates the rational subgrouping principal I learned in my frequentist education.
+
+This approach requires ~10–15 lines of code total.
+
 
 ----------
 
-# Two Ways to Get the Posterior
-\
-## Way 1: Grid Approximation (Garden of Forking Paths)
-\
-This is taugt first:
 
-```{r}
-# Define grid of possible p values
-p_grid <- seq(0, 1, length.out = 100)
+# Workflow: Bayesian Globe Tossing Analysis (Tidy Approach)
 
-# Prior (uniform)
-prior <- rep(1, 100)
-
-# Likelihood: how many paths lead to 3W, 11L for each p?
-likelihood <- stats::dbinom(3, size = 14, prob = p_grid)
-
-# Posterior ∝ prior × likelihood
-posterior_raw <- prior * likelihood
-
-# Normalize so it sums to 1
-posterior <- posterior_raw / sum(posterior_raw)
-```
-
-This **is** counting paths—`dbinom()` computes how many ways to get 3W in 14 tosses for each value of p.
+## Problem Summary
 
 
 
+Step 1: Define the Prior
+Choose a prior for p. Standard choice is uniform: Beta(1, 1).
+
+Step 2: Compute the Posterior (Analytically)
+With Beta-Binomial conjugacy:
+
+Prior: Beta(a, b)
+Posterior: Beta(a + W, b + L) = Beta(1 + 3, 1 + 11) = Beta(4, 12)
+
+No function needed—just parameter arithmetic.
+
+Step 3: Sample from the Posterior
+Draw many samples (e.g., 10,000) from the posterior distribution. Store in a tibble.
+
+stats::rbeta() — no tidy alternative for random draws
+tibble::tibble() — structure samples as a data frame
 
 
-## **Way 2: Conjugate Solution (Mathematical Shortcut)**
+Step 4: Visualize the Posterior
 
-Mathematicians proved: if your prior is Beta and your data is binomial, the posterior is also Beta.
-```
-Prior:     Beta(1, 1)
-Data:      3W, 11L
-Posterior: Beta(1+3, 1+11) = Beta(4, 12)
-```
-
-No grid needed. Just update the parameters and compute.
+ggplot2::ggplot() + ggplot2::geom_histogram() — histogram of samples
+Alternative: ggplot2::geom_density() for smooth curve
 
 
+Step 5: Generate Posterior Predictive Distribution
+For each posterior sample of p, simulate 5 globe tosses and count water.
 
-## How They Connect  
-\
-Grid ApproximationConjugate SolutionCount paths at 100 pointsExact curve everywheredbinom() does the countingdbeta() gives the resultApproximateExactWorks for any modelOnly works for special prior/likelihood pairs
-
-
-### Visualize Both
-
-```{r}
-tibble::tibble(
-  p = seq(0, 1, length.out = 100),
-  grid_method = stats::dbinom(3, size = 14, prob = p),
-  conjugate = stats::dbeta(p, shape1 = 4, shape2 = 12)
-) |>
-  dplyr::mutate(grid_method = grid_method / sum(grid_method) * 100) |>
-  tidyr::pivot_longer(cols = -p, names_to = "method", values_to = "density") |>
-  ggplot2::ggplot(ggplot2::aes(x = p, y = density, color = method)) +
-  ggplot2::geom_line()
-```
-
-Same shape. The conjugate solution is just the analytical answer to the path-counting question.
+stats::rbinom() — no tidy alternative; vectorized, so one call works
+dplyr::mutate() — add predictions as a column to your tibble
 
 
-## Summary
+Step 6: Summarize the Predictive Distribution
 
-Question	Answer
-Where does the curve come from?	Counting paths (via likelihood) weighted by prior
-Why Beta(4, 12)?	Mathematical shortcut that gives the same answer
-What's dbinom() doing?	Computing "how many ways to get 3W in 14 tosses if p = x"
+dplyr::count() — tabulate water counts (0–5)
+dplyr::mutate() — compute proportions
 
 
+Step 7: Visualize the Predictive Distribution
 
-***The density curve IS the garden—just expressed as a continuous function instead of discrete counts.***
-
-
-
+ggplot2::ggplot() + ggplot2::geom_col() — bar chart of predicted counts
 
 
-# Function Summary
+Function Summary
+StepFunctionPurpose3stats::rbeta()Sample posterior (no tidy alt)3tibble::tibble()Store samples4ggplot2::geom_histogram()Plot posterior5stats::rbinom()Simulate predictions (no tidy alt)5dplyr::mutate()Add prediction column6dplyr::count()Tabulate results6dplyr::mutate()Compute proportions7ggplot2::geom_col()Plot predictive distribution
 
+Flextable Code
 
 ```{r}
 tibble::tibble(
@@ -535,9 +503,9 @@ tibble::tibble(
   Function = c("stats::rbeta()", "tibble::tibble()", "ggplot2::geom_histogram()",
                "stats::rbinom()", "dplyr::mutate()", "dplyr::count()",
                "dplyr::mutate()", "ggplot2::geom_col()"),
-  Purpose = c("Sample posterior (no tidy alt)", "Store samples", "Plot histogram",
-              "Simulate predictions (no tidy alt)", "Add prediction column to df",
-              "Get counts of each sample result", "Add column to data frame", "Plot predictive distribution as bar chart")
+  Purpose = c("Sample posterior (no tidy alt)", "Store samples", "Plot posterior",
+              "Simulate predictions (no tidy alt)", "Add prediction column",
+              "Tabulate results", "Compute proportions", "Plot predictive distribution")
 ) |>
   flextable::flextable() |>
   flextable::add_header_lines("Key R Functions for Bayesian Globe Analysis") |>
